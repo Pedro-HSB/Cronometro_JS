@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index2.css">
+    <title>Cronômetro</title>
+</head>
+
+<body>
+    <h1>Cronômetro</h1>
+    <div class="full">
+        <div class="painel">
+            <div class="numeros">
+                <p id="number"></p>
+            </div>
+        </div>
+        <div class="espacamento">
+
+        </div>
+        <div class="button">
+            <button class="reset" onclick="reset()">reset</button>
+            <button class="start" onclick="timeout()">start</button>
+            <button class="pause" onclick="pause()">pause</button>
+            <button class="" onclick="quit()">quit</button>
+        </div>
+    </div>
+</body>
+<!-- <script src="index.js"> -->
+<script>
+    var time;
+    var s = 00;
+    var m = 00;
+    var h = 00;
+    time = '00:00:00';
+    parseInt(time);
+    number = document.getElementById('number');
+    number.innerHTML = time;
+    console.log('ta funcionando');
+
+    function reset() {
+        quit();
+        var s = 00;
+        var m = 00;
+        var h = 00;
+        number = document.getElementById('number');
+        number.innerText = h + ":" + m + ":" + s;
+        console.log(number);
+        //number.innerHTML = time;
+    }
+
+    function timeout(type) {
+        setTimeout(start, 1000);
+        if (type == 0) {
+            return;
+        }
+    }
+    function start() {
+        s++;
+        number.innerText = h + ":" + m + ":" + s;
+        console.log(h);
+        console.log(m);
+        console.log(s);
+        if (s >= 6) {
+            s = 00;
+            m++;
+        }
+        else if (m >= 6) {
+            m = 00;
+            h++;
+        }
+        else if (h >= 2) {
+            s = 00;
+            m = 00;
+            h = 00;
+        }
+        timeout();
+    }
+
+    function pause() {
+        number = document.getElementById('number');
+        console.log(number);
+    }
+
+    function quit() {
+        return timeout(0);
+    }
+</script>
+
+</html>
+
+<!-- for (let hor = 0; hor <= 60; hor++) { console.log(min); console.log(hor); } 
+
+
+        // number.innerHTML = '00:00'
+        // var now = new Date();
+        // var nowDateTime = now.toISOString();
+        // var nowDate = nowDateTime.split('T')[0];
+        // var hms = '01:12:33';
+        // var target = new Date(nowDate + 'T' + hms);
+        //   number.innerHTML = hms;
+
+        const d = new Date();
+        let m = d.getMinutes();
+          // let h = d.getHours();
+        // let s = d.getSeconds();
+        // number.innerText = h + d + m + s;
+        // number.innerText = time;
+        // let time = h + ":" + m + ":" + s;
+
+        function second() {
+            s++;
+            console.log(s);
+            if (m >= 61) {
+                console.log(m);
+                console.log(s);
+                return;
+                // number.innerText = m + s;
+            }
+        }
+
+
+                // if (min = 60) {
+                // hor++;
+                // console.log(min);
+                // console.log(hor);
+                // if (hor = 24) {
+                // exit;
+                // }
+                // }
+                // console.log(target);
+
+
+                        // hor = 0;
+                        
+                        // for (let min = 0; min <= 60; min++) { // number.innerHTML=min; // console.log(min); // if (min>= 61 || hor >= 26) {
+                            // return;
+                            // }
+                            //}
+
+-->
